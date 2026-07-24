@@ -2,73 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=user manual.html">
     <title>SakeRecord User Manual</title>
     <script>
-        // アクセスしたユーザーの言語を自動判定してリダイレクト（直リンクでない場合）
-        window.addEventListener('DOMContentLoaded', () => {
-            const userLang = navigator.language || navigator.userLanguage;
-            // URLパラメータ ?noredirect=true が付いていない場合は自動転送
-            const urlParams = new URLSearchParams(window.location.search);
-            if (!urlParams.get('noredirect')) {
-                if (userLang.startsWith('ja')) {
-                    // 日本語環境なら既存の日本語版マニュアルへ（ファイル名に合わせて調整可）
-                    window.location.href = 'user manual.html';
-                } else {
-                    // それ以外なら英語版へ
-                    window.location.href = 'SakeRecord user manual eng.html';
-                }
-            }
-        });
+        // 即座に user manual.html へリダイレクト
+        window.location.href = "user manual.html";
     </script>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f3f4f6;
-            color: #1f2937;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 { font-size: 24px; color: #4f46e5; margin-bottom: 8px; }
-        p { font-size: 14px; color: #6b7280; margin-bottom: 30px; }
-        .btn-group { display: flex; flex-direction: column; gap: 12px; }
-        .btn {
-            display: block;
-            padding: 14px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-        .btn-primary { background-color: #4f46e5; color: white; }
-        .btn-primary:hover { background-color: #4338ca; }
-        .btn-secondary { background-color: #e0e7ff; color: #3730a3; }
-        .btn-secondary:hover { background-color: #c7d2fe; }
-    </style>
 </head>
 <body>
-
-<div class="card">
-    <h1>SakeRecord</h1>
-    <p>User Manual / ユーザーマニュアル</p>
-    
-    <div class="btn-group">
-        <a href="manual.html" class="btn btn-primary">日本語マニュアル</a>
-        <a href="SakeRecord user manual eng.html" class="btn btn-secondary">English User Manual</a>
-    </div>
-</div>
-
+    <p>If you are not redirected automatically, follow this <a href="user manual.html">link to SakeRecord User Manual</a>.</p>
 </body>
 </html>

@@ -2,367 +2,124 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>SakeRecord（サケレコード）完全取扱説明書・ユーザーマニュアル</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SakeRecord User Manual - Select Language</title>
     <style>
-        @page {
-            size: A4;
-            margin: 15mm 12mm;
-            background-color: #fdfbf7;
-        }
-        *, *::before, *::after {
-            box-sizing: border-box;
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary-bg: #e0e7ff;
+            --secondary-color: #3730a3;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-color: #1f2937;
+            --sub-text: #6b7280;
         }
         body {
-            font-family: "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
-            font-size: 10pt;
-            line-height: 1.6;
-            color: #2c2c2c;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
-            background-color: #fdfbf7;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        
-        .header-banner {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: #ffffff;
-            padding: 24px 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-        .header-banner h1 {
-            font-size: 20pt;
-            margin: 0 0 8px 0;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .header-banner p {
-            font-size: 10pt;
-            margin: 0;
-            opacity: 0.9;
-        }
-        
-        h2 {
-            font-size: 14pt;
-            color: #1e3c72;
-            border-left: 5px solid #2a5298;
-            padding-left: 10px;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            page-break-after: avoid;
-        }
-        h3 {
-            font-size: 11pt;
-            color: #333333;
-            border-bottom: 1px solid #dcdcdc;
-            padding-bottom: 4px;
-            margin-top: 18px;
-            margin-bottom: 8px;
-            page-break-after: avoid;
-        }
-        h4 {
-            font-size: 10pt;
-            color: #444444;
-            margin-top: 12px;
-            margin-bottom: 6px;
-            font-weight: bold;
-            page-break-after: avoid;
-        }
-        
-        p {
-            margin-top: 0;
-            margin-bottom: 10px;
-            text-align: justify;
-        }
-        
-        ul, ol {
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 4px;
-        }
-        
-        table {
+        .card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 420px;
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            font-size: 9.5pt;
-            page-break-inside: avoid;
         }
-        th, td {
-            border: 1px solid #d0d7de;
-            padding: 8px 10px;
-            text-align: left;
-            vertical-align: top;
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
         }
-        th {
-            background-color: #2a5298;
-            color: #ffffff;
-            font-weight: bold;
+        h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin: 0 0 8px 0;
+            font-weight: 700;
         }
-        tr:nth-child(even) {
-            background-color: #f4f6f9;
+        p.subtitle {
+            font-size: 14px;
+            color: var(--sub-text);
+            margin: 0 0 32px 0;
         }
-        
-        .badge {
-            display: inline-block;
-            padding: 2px 6px;
-            font-size: 8.5pt;
-            font-weight: bold;
-            border-radius: 4px;
-            color: #fff;
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
-        .badge-free { background-color: #6c757d; }
-        .badge-std { background-color: #e67e22; }
-        .badge-all { background-color: #27ae60; }
-        
-        .callout {
-            background-color: #f0f4f8;
-            border-left: 4px solid #2a5298;
-            padding: 10px 14px;
-            margin: 12px 0;
-            border-radius: 0 6px 6px 0;
-            font-size: 9.5pt;
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
         }
-        .callout-title {
-            font-weight: bold;
-            color: #1e3c72;
-            margin-bottom: 4px;
+        .btn-jpn {
+            background-color: var(--primary-color);
+            color: white;
         }
-        
-        .feature-box {
-            background-color: #ffffff;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            padding: 12px 15px;
-            margin-bottom: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        .btn-jpn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
         }
-        
-        code {
-            font-family: "Courier New", Courier, monospace;
-            background-color: #eaeaea;
-            padding: 1px 4px;
-            border-radius: 3px;
-            font-size: 9pt;
+        .btn-eng {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-color);
+        }
+        .btn-eng:hover {
+            background-color: #c7d2fe;
+            transform: translateY(-1px);
+        }
+        footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #9ca3af;
         }
     </style>
 </head>
 <body>
 
-    <div class="header-banner">
-        <h1>SakeRecord 完全取扱説明書（マニュアル）</h1>
-        <p>日本酒ログ記録・写真コレクション・味覚分析・産地コレクションの全機能詳細ガイド</p>
+<div class="card">
+    <div class="app-icon">🍶</div>
+    <h1>SakeRecord</h1>
+    <p class="subtitle">User Manual / ユーザーマニュアル</p>
+    
+    <div class="btn-group">
+        <a href="jpn.html" class="btn btn-jpn">
+            🇯🇵 日本語マニュアル
+        </a>
+        <a href="eng.html" class="btn btn-eng">
+            🇺🇸 English Manual
+        </a>
     </div>
 
-    <h2>1. SakeRecord アプリ概要</h2>
-    <p>
-        <strong>SakeRecord（サケレコード）</strong>は、飲んだ日本酒のスペック・写真・味わいをスマートに記録し、視覚的な写真アルバムやポジショニングマップ、都道府県制覇コレクションとして管理できるiOS専用の日本酒管理アプリケーションです。
-    </p>
-
-    <h2>2. 料金プランと機能制限一覧</h2>
-    <p>アプリ内には「無料版」と「スタンダードプラン」の2つの料金区分が用意されています。各プランの機能差分は以下の通りです。</p>
-
-    <table>
-        <thead>
-            <tr>
-                <th>機能項目</th>
-                <th>無料版 (Free)</th>
-                <th>スタンダードプラン (Standard)</th>
-                <th>概要・補足</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>画面タブ構成</strong></td>
-                <td><span class="badge badge-free">2タブ</span><br>(ログ / 設定)</td>
-                <td><span class="badge badge-std">3タブ</span><br>(ログ / アルバム / 設定)</td>
-                <td>無料版では「アルバム」タブ自体が非表示となり、シンプルな2タブ構成となります。</td>
-            </tr>
-            <tr>
-                <td><strong>写真登録数上限</strong></td>
-                <td><span class="badge badge-free">最大 2 枚</span><br>(表ラベル / 裏ラベル)</td>
-                <td><span class="badge badge-std">最大 5 枚</span><br>(表 / 裏 / サブ1〜3)</td>
-                <td>1つのログに対して保存・表示できるラベルおよびスナップ写真の最大枚数です。</td>
-            </tr>
-            <tr>
-                <td><strong>写真アルバム（一覧表示）</strong></td>
-                <td>非表示 (使用不可)</td>
-                <td><span class="badge badge-std">利用可能</span></td>
-                <td>ピンチイン・アウト操作（2〜5列変更）に対応した全写真一覧ギャラリー画面です。</td>
-            </tr>
-            <tr>
-                <td><strong>味のポジショニングマップ</strong></td>
-                <td>不可 (非活性)</td>
-                <td><span class="badge badge-std">利用可能</span></td>
-                <td>「濃淡」と「甘辛」の2軸で自分のお酒の傾向を視覚化・平均分析する機能です。</td>
-            </tr>
-            <tr>
-                <td><strong>データバックアップ（書き出し）</strong></td>
-                <td>不可 (非活性)</td>
-                <td><span class="badge badge-std">利用可能</span></td>
-                <td>全ログデータ（JSON）と高画質画像を一括でZIP/フォルダ出力する機能です。</td>
-            </tr>
-            <tr>
-                <td><strong>データインポート（読み込み）</strong></td>
-                <td><span class="badge badge-all">利用可能</span></td>
-                <td><span class="badge badge-std">利用可能</span></td>
-                <td>バックアップフォルダからのログデータの復元・移行機能です。</td>
-            </tr>
-            <tr>
-                <td><strong>産地コレクション（47都道府県）</strong></td>
-                <td><span class="badge badge-all">利用可能</span></td>
-                <td><span class="badge badge-std">利用可能</span></td>
-                <td>全国47都道府県の制覇率プログレスバーおよびメダル獲得表示です。</td>
-            </tr>
-            <tr>
-                <td><strong>サジェスト・カスタム辞書</strong></td>
-                <td><span class="badge badge-all">利用可能</span></td>
-                <td><span class="badge badge-std">利用可能</span></td>
-                <td>銘柄、蔵元、酒米、酵母、製法などの自動補完および辞書編集機能です。</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>3. タブ1：ログ（日本酒記録リスト）</h2>
-
-    <h3>3.1 メイン画面と検索・フィルタリング</h3>
-    <div class="feature-box">
-        <h4>リスト表示と並び順</h4>
-        <p>登録された日本酒ログが飲んだ日付の新しい順（降順）で一覧表示されます。各行には以下の情報が表示されます。</p>
-        <ul>
-            <li><strong>銘柄名</strong>：左側に配置（長すぎる場合は1行で省略表示）。</li>
-            <li><strong>飲んだ日</strong>：右側にグレーの小文字で表示。</li>
-            <li><strong>評価の星（★）</strong>：日付の右隣にオレンジ色（★1〜★5）で表示（未評価の場合は非表示）。</li>
-            <li><strong>スワイプ削除</strong>：リスト行を左にスワイプすることで該当ログを削除できます。</li>
-        </ul>
-
-        <h4>高度な検索バー（Searchable）</h4>
-        <p>画面上部の検索バーを利用して、記録済みの全データを即座に絞り込むことができます。</p>
-        <ul>
-            <li><strong>キーワード検索</strong>：銘柄名、特定名称、酒米、酵母、醸造所（蔵元）、都道府県、自由コメントに含まれる文字列をあいまい検索します。</li>
-            <li><strong>評価（星数）ダイレクト検索</strong>：検索バーに「<code>1</code>」〜「<code>5</code>」の半角数字を1文字だけ入力すると、その評価星数（★1〜★5）に一致するログのみを瞬時に抽出します。</li>
-        </ul>
-    </div>
-
-    <h3>3.2 ツールバーの各種操作ボタン</h3>
-    <ul>
-        <li><strong>産地コレクションボタン（🏅メダルアイコン）</strong>：ナビゲーション左側に配置。タップすると「都道府県制覇画面」へ遷移します。</li>
-        <li><strong>味の分析マップボタン（📈グラフアイコン）</strong>：ナビゲーション左側に配置。スタンダードプラン限定。タップすると「味のポジショニングマップ」へ遷移します。無料版では非活性表示（グレーアウト）となります。</li>
-        <li><strong>サブメニューボタン（「...」アイコン）</strong>：
-            <ul>
-                <li><strong>データを書き出す（square.and.arrow.up）</strong>：スタンダードプラン限定。全ログと画像をZIP/フォルダ形式で共有シートに書き出します。</li>
-                <li><strong>データを読み込む（square.and.arrow.down）</strong>：バックアップフォルダを選択し、データベースへ一括インポートします。</li>
-            </ul>
-        </li>
-        <li><strong>新規登録ボタン（「＋」アイコン）</strong>：ナビゲーション右側に配置。タップすると「新規登録シート（SakeInputView）」が下部から立ち上がります。</li>
-    </ul>
-
-    <h3>3.3 新規登録画面（SakeInputView）の全入力項目</h3>
-    <p>新規に日本酒ログを登録する画面です。以下の入力項目で構成されています。</p>
-
-    <div class="feature-box">
-        <h4>1. ラベル・その他の写真セクション</h4>
-        <ul>
-            <li><strong>横スクロール写真タイル</strong>：左から「表ラベル」「裏ラベル」「サブ1」「サブ2」「サブ3」の最大5枠が並びます。</li>
-            <li><strong>タイルタップ操作</strong>：未登録時はカメラが自動起動します。登録済み時は拡大プレビューギャラリーが開きます。無料版で「サブ1〜3」をタップした場合はアップグレード案内アラートが表示されます。</li>
-            <li><strong>「アルバムから登録」ボタン</strong>：PhotosPickerを起動し、ライブラリから複数写真を一括選択して自動割り当てします（無料版は最大2枚、スタンダード版は最大5枚）。</li>
-        </ul>
-
-        <h4>2. 自由コメントセクション</h4>
-        <p>写真タイルのすぐ直下に配置された長文用テキストエディタです。テイスティングメモ、購入店、価格、ペアリングした料理などを自由に入力できます。</p>
-
-        <h4>3. 基本情報セクション</h4>
-        <ul>
-            <li><strong>銘柄名</strong>（必須）：お酒の銘柄を入力。</li>
-            <li><strong>特定名称</strong>（Picker）：設定なし / 普通酒 / 純米酒 / 特別純米酒 / 純米吟醸酒 / 純米大吟醸酒 / 本醸造酒 / 特別本醸造酒 / 吟醸酒 / 大吟醸酒 / その他 から選択。</li>
-            <li><strong>製法</strong>：生酛、山廃仕込、無濾過生原酒、袋吊り、中取り、あらばしり、火入れ、生酒、原酒、にごり酒、生詰、生貯蔵、古酒、スパークリングなど。</li>
-            <li><strong>酒米</strong>：山田錦、五百万石、美山錦、雄町、出羽燦々、愛山など。</li>
-            <li><strong>精米歩合</strong>（%）：数値キーボードで入力（例: 50）。</li>
-            <li><strong>度数</strong>（%）：アルコール度数を数値キーボードで入力（例: 15）。</li>
-            <li><strong>酵母</strong>：協会6号、7号、9号、1801号、静岡酵母、蔵付き酵母など。</li>
-            <li><strong>醸造所</strong>：蔵元名・酒造会社名を入力。</li>
-            <li><strong>都道府県</strong>：全国47都道府県＋その他から指定。</li>
-            <li><strong>飲んだ日</strong>：カレンダー（DatePicker）から選択。</li>
-        </ul>
-
-        <h4>4. リアルタイム予測変換・サジェストバー（キーボードツールバー）</h4>
-        <p>銘柄名、製法、酒米、酵母、醸造所、都道府県の入力時、キーボード上部にサジェスト候補が横スクロールで自動表示されます。候補ボタンをタップすると入力が完了し、辞書内の使用カウントが自動加算されます。</p>
-
-        <h4>5. 総合評価セクション</h4>
-        <p>1〜5段階の星（★）をタップして評価を設定します。</p>
-
-        <h4>6. 味の分析セクション</h4>
-        <ul>
-            <li><strong>味の4軸ピッカー（セグメント制御）</strong>：
-                <ul>
-                    <li>濃淡：淡麗(1) / 中庸(2) / 濃醇(3)</li>
-                    <li>甘辛：甘口(1) / 中庸(2) / 辛口(3)</li>
-                    <li>香り：穏やか(1) / 普通(2) / 華やか(3)</li>
-                    <li>性質：熟成(1) / 普通(2) / ﾌﾚｯｼｭ(3)</li>
-                </ul>
-            </li>
-            <li><strong>特徴フラグ（チェックボックス）</strong>：発泡 / コメうま / コク / 苦味 / キレ</li>
-        </ul>
-    </div>
-
-    <h3>3.4 詳細・編集画面（SakeDetailView）</h3>
-    <p>登録済みログの全項目の確認・修正が可能です。画面右上の「🔍」アイコンをタップすると、銘柄名と蔵元名をもとにGoogle検索を実行するブラウザが開きます。</p>
-
-    <h2>4. タブ2：写真アルバム（SakePhotoGalleryView） ※スタンダード限定</h2>
-    <div class="feature-box">
-        <h4>ビジュアルギャラリーとピンチイン・アウト制御</h4>
-        <p>スタンダードプラン以上のユーザーに表示される専用タブです。登録されているすべてのラベル写真（表・裏・サブ）が、グリッド状に並んで表示されます（※無料版ユーザーにはタブ自体が表示されません）。</p>
-        <ul>
-            <li><strong>ピンチ操作による列数変更</strong>：画面上で2本の指を広げる（ピンチアウト）と拡大（列数が減少：最小2列）、すぼめる（ピンチイン）と縮小（列数が増加：最大5列）へインタラクティブに切り替わります。</li>
-            <li><strong>タップ遷移</strong>：枚数タイルをタップすると、その写真が属するログの詳細画面（SakeDetailView）へダイレクトに移動します。</li>
-        </ul>
-    </div>
-
-    <h2>5. タブ3（無料版はタブ2）：設定とカスタマイズ</h2>
-
-    <h3>5.1 設定メニュー項目</h3>
-    <ul>
-        <li><strong>現在のプラン表示</strong>：現在有効なプラン状態を確認できます。</li>
-        <li><strong>スキャン辞書の編集（DictionaryEditView）</strong>：自動補完（サジェスト）で使用される辞書キーワードの追加・検索・削除・使用回数の管理を行えます。
-            <ul>
-                <li>カテゴリ切り替え（銘柄 / 蔵元 / 製法 / 酒米 / 酵母）。</li>
-                <li>「X回使用」バッジ表示および「初期」データマーク表示。</li>
-                <li>「＋」ボタンから新しいキーワードとひらがな読みを追加可能。</li>
-            </ul>
-        </li>
-        <li><strong>初回チュートリアルを表示</strong>：アプリの使い方スライド（SakeTutorialView）を再表示します。</li>
-        <li><strong>アプリについて</strong>：現在のアプリバージョン（例: 1.0.1）を表示。</li>
-    </ul>
-
-    <h2>6. 補助画面・バックアップ仕様</h2>
-
-    <h3>6.1 産地コレクション（PrefectureGridView）</h3>
-    <p>全国47都道府県の制覇状況を可視化します。</p>
-    <ul>
-        <li><strong>制覇プログレスバー</strong>：画面上部に「X / 47 都道府県」の進捗メーターを表示。</li>
-        <li><strong>都道府県セル</strong>：一度でも飲んだことのある都道府県にはオレンジ色のメダル（🏅）と飲んだ本数が表示され、未達成の都道府県はグレー表示となります。</li>
-    </ul>
-
-    <h3>6.2 味のポジショニングマップ（SakeTasteMapView） ※スタンダード限定</h3>
-    <p>横軸に「甘辛（甘口〜辛口）」、縦軸に「濃淡（淡麗〜濃醇）」をとった2次元マップ上に、過去の全ログをプロットします。</p>
-    <ul>
-        <li><strong>各お酒のプロット</strong>：オレンジ色の円で表示（重なりを防止するジッター処理済み）。</li>
-        <li><strong>あなたの平均傾向</strong>：全ログの平均値を算出の上、青い星マーク（★）でマップ中央付近にプロットします。</li>
-    </ul>
-
-    <h3>6.3 データバックアップと復元構造</h3>
-    <div class="callout">
-        <div class="callout-title">バックアップフォルダ構成 (SakeLog_Backup_yyyyMMdd)</div>
-        <p>「データを書き出す」を実行すると、日付付きのフォルダが自動生成され、以下のファイルが出力されます。</p>
-        <ul>
-            <li><code>data.json</code>：全レコードのテキストデータ、評価、日付、設定値をISO8601準拠JSON形式で出力。</li>
-            <li><code>銘柄名_UUID8桁_front.jpg</code> / <code>_back.jpg</code> / <code>_sub1.jpg</code> 等：各ログに紐付く圧縮JPEG画像ファイル。</li>
-        </ul>
-        <p>「データを読み込む」を実行してこのフォルダを選択することで、既存データと重複することなく安全に一括インポート・復元が行われます。</p>
-    </div>
+    <footer>
+        &copy; 2026 SakeRecord All Rights Reserved.
+    </footer>
+</div>
 
 </body>
 </html>
