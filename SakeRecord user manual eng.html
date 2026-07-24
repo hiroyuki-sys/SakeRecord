@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SakeRecord User Manual</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --text-color: #1f2937;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 26px; color: var(--primary-color); }
+        header p { margin: 10px 0 0 0; color: #4b5563; font-size: 15px; }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+        .lang-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .toc {
+            background-color: var(--card-bg);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .toc h2 { margin-top: 0; font-size: 18px; }
+        .toc ul { padding-left: 20px; margin: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        section h3 {
+            font-size: 16px;
+            margin-top: 25px;
+            color: #111827;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+        
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        strong { color: #111827; }
+        
+        .note {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #fee2e2;
+            color: #ef4444;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SakeRecord User Manual</h1>
+    <p>~ Complete Guide to Features and Usage ~</p>
+</header>
+
+<div class="container">
+    <div class="lang-switch">
+        <a href="index.html">🌐 Language / 言語選択</a>
+    </div>
+
+    <nav class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#intro">1. What is SakeRecord?</a></li>
+            <li><a href="#tutorial">2. Initial Tutorial Feature</a></li>
+            <li><a href="#input-screen">3. Input Screen Details (Add/Edit)</a></li>
+            <li><a href="#dictionary-edit">4. Input History Suggestions & Dictionary Management</a></li>
+            <li><a href="#detail-screen">5. Viewing and Managing Sake Details</a></li>
+            <li><a href="#gallery-tab">6. How to Use the Photo Gallery Tab</a></li>
+            <li><a href="#map-tab">7. Flavor Positioning Map Analysis</a></li>
+            <li><a href="#backup-system">8. Data Backup and Restore System</a></li>
+            <li><a href="#premium-plan">9. Free vs. Premium Plan Specifications</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Intro -->
+    <section id="intro">
+        <h2>1. What is SakeRecord?</h2>
+        <p>SakeRecord is a standalone logging application designed to help you record, organize, and analyze your tasting history and photo collection of Japanese Sake securely on your device (using SwiftData).</p>
+    </section>
+
+    <!-- 2. Tutorial -->
+    <section id="tutorial">
+        <h2>2. Initial Tutorial Feature</h2>
+        <p>When you launch the app for the first time, a walkthrough tutorial visually introduces SakeRecord's core highlights (Sake Logging, Photo Collection, and Flavor Map Analysis).</p>
+        <div class="note">
+            <strong>💡 View Anytime:</strong><br>
+            You can re-open the tutorial at any time by tapping <strong>"Show Initial Tutorial"</strong> in the Settings tab.
+        </div>
+    </section>
+
+    <!-- 3. Input Screen -->
+    <section id="input-screen">
+        <h2>3. Input Screen Details (Add/Edit)</h2>
+        <p>An intuitive layout that allows quick entry even while enjoying a glass of sake.</p>
+        
+        <h3>📷 Label & Additional Photos (Up to 5)</h3>
+        <ul>
+            <li><strong>Front Label / Back Label / Sub 1-3:</strong> 5 dedicated slots for different photos.</li>
+            <li><strong>Batch Import:</strong> Select and add up to 5 photos at once from your photo library.</li>
+        </ul>
+        
+        <h3>✍️ Custom Notes (Placed directly below photos)</h3>
+        <ul>
+            <li>Conveniently write tasting notes while visually checking the newly captured or selected label photos right above.</li>
+        </ul>
+
+        <h3>📝 Basic Specifications</h3>
+        <ul>
+            <li>Record <strong>Brand Name, Brewery, and Prefecture (Origin)</strong>.</li>
+            <li><strong>Sake Grade (Classification):</strong> 1-tap picker selection for Junmai, Daiginjo, Tokubetsu Junmai, etc.</li>
+            <li><strong>Style & Rice Type:</strong> Record craftsmanship details like "Kimoto" or "Yamadanishiki".</li>
+            <li><strong>Polishing Ratio & Alcohol Degree:</strong> Auto-launches number pad with "%" appended automatically.</li>
+            <li><strong>Tasted Date:</strong> Accurately select past dates using the DatePicker.</li>
+        </ul>
+
+        <h3>⭐️ Rating & 4-Axis Flavor Analysis</h3>
+        <ul>
+            <li><strong>Star Rating:</strong> Tap stars (1 to 5) for quick evaluation.</li>
+            <li><strong>4-Axis Sliders:</strong> Fine-tune "Body (Light/Full)", "Dryness (Sweet/Dry)", "Aroma (Subtle/Expressive)", and "Character (Aged/Fresh)".</li>
+            <li><strong>Feature Tags (ON/OFF):</strong> Quickly toggle tags like "Effervescent", "Rice Umami", "Richness", "Bitterness", and "Crisp Finish".</li>
+        </ul>
+    </section>
+
+    <!-- 4. Dictionary -->
+    <section id="dictionary-edit">
+        <h2>4. Input History Suggestions & Dictionary Management</h2>
+        <p>SakeRecord features an intelligent built-in dictionary system to minimize repetitive typing.</p>
+        
+        <h3>🔍 Input History Suggestions</h3>
+        <ul>
+            <li>When focusing on fields like "Brand Name", "Style", "Rice", "Yeast", "Brewery", or "Prefecture", matching keywords from your previous entries or built-in dictionary appear above the keyboard. Tap to instantly fill in the field.</li>
+        </ul>
+
+        <h3>🛠️ Custom Dictionary Management</h3>
+        <p>Manage and maintain saved keywords via "Dictionary Management" in the Settings tab.</p>
+        <ul>
+            <li><strong>Categorized View:</strong> Browse keywords organized by category (e.g., Brand, Rice).</li>
+            <li><strong>Swipe to Delete:</strong> Easily remove typos or unwanted words by swiping left on the item.</li>
+            <li><strong>Usage Counter:</strong> Tracks how many times each keyword has been used in your records.</li>
+        </ul>
+    </section>
+
+    <!-- 5. Detail Screen -->
+    <section id="detail-screen">
+        <h2>5. Viewing and Managing Sake Details</h2>
+        <p>A beautifully organized screen to review your records with layout order identical to the input screen.</p>
+        <ul>
+            <li><strong>Photo Zoom:</strong> Tap any photo to enter full-screen view (ZoomableImageView) and pinch out to read fine text on back labels.</li>
+            <li><strong>Inline Editing:</strong> Edit details directly from the detail screen with auto-save to SwiftData.</li>
+        </ul>
+    </section>
+
+    <!-- 6. Gallery Tab -->
+    <section id="gallery-tab">
+        <h2>6. How to Use the Photo Gallery Tab</h2>
+        <p>A unique gallery view to visually browse your entire collection.</p>
+        <ul>
+            <li><strong>All-in-one Photo Grid:</strong> Displays all registered photos in chronological order regardless of brand.</li>
+            <li><strong>Pinch to Resize Grid:</strong> Pinch in/out with two fingers to dynamically change grid columns (e.g., enlarge photos with 2 columns, or overview with 5 columns).</li>
+        </ul>
+    </section>
+
+    <!-- 7. Map Tab -->
+    <section id="map-tab">
+        <h2>7. Flavor Positioning Map Analysis</h2>
+        <p>Automatically analyzes and visualizes your personal taste preferences based on logged data.</p>
+        <ul>
+            <li><strong>2-Axis Visual Map:</strong> Plots your recorded sake on a 2D grid with Vertical Axis = "Body (Light/Full)" and Horizontal Axis = "Dryness (Sweet/Dry)".</li>
+            <li><strong>Preference Center:</strong> Instantly realize your subtle taste patterns (e.g., "I mostly prefer Light & Dry sake").</li>
+        </ul>
+    </section>
+
+    <!-- 8. Backup -->
+    <section id="backup-system">
+        <h2>8. Data Backup and Restore System</h2>
+        <p>Complete peace of mind with local storage data management.</p>
+        <ul>
+            <li><strong>Full Export:</strong> Package all text entries and high-resolution photo files into a single backup file.</li>
+            <li><strong>External Storage:</strong> Export files safely to iCloud Drive, Google Drive, AirDrop to Mac/PC, or email attachments.</li>
+        </ul>
+    </section>
+
+    <!-- 9. Plan Comparison -->
+    <section id="premium-plan">
+        <h2>9. Free vs. Premium Plan Specifications</h2>
+        <p>SakeRecord offers a Free plan for general users and a Premium (Monthly Subscription) plan for enthusiasts.</p>
+        
+        <table style="width:100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
+            <thead>
+                <tr style="background-color: #f3f4f6; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 10px; text-align: left;">Feature</th>
+                    <th style="padding: 10px; text-align: left;">Free Plan</th>
+                    <th style="padding: 10px; text-align: left;">Premium Plan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 10px; font-weight: bold;">Sake Record Limit</td>
+                    <td style="padding: 10px;">Up to 50 records</td>
+                    <td style="padding: 10px; color: #10b981; font-weight: bold;">Unlimited</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 10px; font-weight: bold;">Photos per Record</td>
+                    <td style="padding: 10px;">1 Photo (Front Label) <span class="badge">Limited</span></td>
+                    <td style="padding: 10px; color: #10b981; font-weight: bold;">Up to 5 Photos</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 10px; font-weight: bold;">Backup & Restore</td>
+                    <td style="padding: 10px;">Supported</td>
+                    <td style="padding: 10px; color: #10b981; font-weight: bold;">Supported</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 SakeRecord All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
