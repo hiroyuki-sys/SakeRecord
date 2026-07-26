@@ -139,6 +139,21 @@
             border-radius: 4px;
             font-size: 13px;
         }
+        .privacy-card {
+            text-align: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .privacy-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .privacy-link:hover { text-decoration: underline; }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -156,7 +171,7 @@
 
 <div class="container">
     <div class="nav-back">
-        <a href="user manual.html">🌐 Language Select</a>
+        <a href="user_manual.html">🌐 日本語版マニュアル</a>
     </div>
 
     <nav class="toc">
@@ -210,7 +225,7 @@
                     <td><strong>Photo Album (Gallery)</strong></td>
                     <td>Hidden (Unavailable)</td>
                     <td><span class="badge badge-std">Available</span></td>
-                    <td>Full photo gallery screen supporting pinch-in/out gestures to change display columns (2 to 5 columns).</td>
+                    <td>Clean full-bleed gallery view supporting pinch-in/out gestures to change display columns (2 to 5 columns).</td>
                 </tr>
                 <tr>
                     <td><strong>Flavor Positioning Map</strong></td>
@@ -219,16 +234,16 @@
                     <td>Visualizes and analyzes your personal taste trends along two axes: "Body" and "Dryness".</td>
                 </tr>
                 <tr>
-                    <td><strong>Data Backup (Export)</strong></td>
+                    <td><strong>Log Backup (Export)</strong></td>
                     <td>Disabled (Grayed out)</td>
                     <td><span class="badge badge-std">Available</span></td>
                     <td>Exports all log data (JSON) and high-resolution images together as a ZIP/folder.</td>
                 </tr>
                 <tr>
-                    <td><strong>Data Import (Restore)</strong></td>
+                    <td><strong>Dictionary Backup / Restore</strong></td>
                     <td><span class="badge badge-all">Available</span></td>
                     <td><span class="badge badge-std">Available</span></td>
-                    <td>Restores and migrates log data seamlessly from a backup folder.</td>
+                    <td>Exports and imports custom suggestion dictionary files (`SakeDictionary_Backup_yyyyMMdd.json`).</td>
                 </tr>
                 <tr>
                     <td><strong>Origin Collection (47 Prefectures)</strong></td>
@@ -280,14 +295,14 @@
             <li><strong>New Entry Button ("+" Icon)</strong>: Located on the right side of the navigation bar. Tapping brings up the "New Entry Sheet (SakeInputView)" from the bottom.</li>
         </ul>
 
-        <h3>3.3 New Entry Screen (SakeInputView) Fields</h3>
+        <h3>3.3 New Entry Screen (SakeInputView) Fields & Photo Controls</h3>
         <p>This screen is used to log a new Sake entry. It consists of the following input sections:</p>
 
         <h4>1. Label & Photo Section</h4>
         <ul>
             <li><strong>Horizontal Scroll Photo Tiles</strong>: Displays up to 5 slots from left to right: "Front Label", "Back Label", "Sub 1", "Sub 2", and "Sub 3".</li>
             <li><strong>Tile Tap Actions</strong>: Automatically opens the camera if empty. Opens an enlarged preview gallery if a photo is registered. Tapping "Sub 1–3" in the Free version triggers an upgrade prompt alert.</li>
-            <li><strong>"Register from Album" Button</strong>: Launches PhotosPicker to select multiple images from your photo library and automatically assigns them (up to 2 photos for Free, up to 5 for Standard).</li>
+            <li><strong>"Register from Album" Button</strong>: Select multiple photos at once from your library (up to 2 for Free, up to 5 for Standard). If a target slot already contains a photo, an **"Overwrite Confirmation"** alert pops up to prevent accidental deletion.</li>
         </ul>
 
         <h4>2. Custom Comments Section</h4>
@@ -326,16 +341,27 @@
             <li><strong>Feature Flags (Checkboxes)</strong>: Effervescent / Rice Umami / Richness / Bitterness / Crisp Finish</li>
         </ul>
 
-        <h3>3.4 Detail & Edit Screen (SakeDetailView)</h3>
-        <p>View and edit all fields of registered logs. Tapping the "🔍" icon in the top-right opens an in-app browser to execute a Google search based on the Brand Name and Brewery Name.</p>
+        <h3>3.4 Detail Screen (SakeDetailView) & Full Viewer (SakeImageDetailView)</h3>
+        <p>View and edit all fields of registered logs.</p>
+        <ul>
+            <li><strong>Brewery Web Search</strong>: Tapping the "🔍" icon in the top right opens an in-app browser to search Google for the Brand and Brewery name.</li>
+            <li><strong>Full Viewer, Replacement & Deletion</strong>:
+                Tapping any photo tile opens the full-screen viewer (`SakeImageDetailView`).
+                <ul>
+                    <li><strong>Replacing Photos</strong>: Tap the camera icon on the top left to retake or select a new image.</li>
+                    <li><strong>Deleting Photos</strong>: Tap the red trash icon (`trash`) on the top left to show a confirmation dialog and safely delete only the current image.</li>
+                </ul>
+            </li>
+        </ul>
     </section>
 
     <!-- 4. Gallery Tab -->
     <section id="gallery-tab">
         <h2>4. Tab 2: Photo Album (SakePhotoGalleryView) *Standard Plan Exclusive</h2>
         <h4>Visual Gallery & Pinch Gesture Controls</h4>
-        <p>A dedicated tab available exclusively to Standard Plan users. Displays all registered label photos (Front, Back, and Sub) in a grid layout (the tab itself is hidden for Free plan users).</p>
+        <p>A dedicated tab available exclusively to Standard Plan users. Displays all registered label photos (Front, Back, and Sub) in a clean grid layout (hidden for Free users).</p>
         <ul>
+            <li><strong>Clean Title-free Layout</strong>: The navigation header is hidden to maximize viewing area and prevent text overlay on thumbnails.</li>
             <li><strong>Pinch Column Resizing</strong>: Spreading two fingers (pinch-out) enlarges thumbnails (reduces column count down to 2), while pinching together (pinch-in) shrinks thumbnails (increases column count up to 5).</li>
             <li><strong>Tap Navigation</strong>: Tapping any photo tile navigates directly to the detail screen (SakeDetailView) of the corresponding log entry.</li>
         </ul>
@@ -344,18 +370,24 @@
     <!-- 5. Settings Tab -->
     <section id="settings-tab">
         <h2>5. Tab 3 (Tab 2 in Free Version): Settings & Customization</h2>
-        <h3>5.1 Settings Menu Items</h3>
+        <h3>5.1 Settings Menu Items (SettingsView)</h3>
         <ul>
             <li><strong>Current Plan Display</strong>: Displays your currently active plan status.</li>
-            <li><strong>Edit Scan Dictionary (DictionaryEditView)</strong>: Add, search, delete, and manage usage counts for dictionary keywords used in auto-completion.
+            <li><strong>Edit Scan Dictionary (DictionaryEditView)</strong>: Add, search, delete, and manage usage counts for dictionary keywords.
                 <ul>
                     <li>Category switching (Brand / Brewery / Style / Rice / Yeast).</li>
                     <li>Displays "Used X times" badges and "Default" data indicators.</li>
                     <li>Add new keywords and Kana readings via the "+" button.</li>
+                    <li><strong>Dictionary Backup & Restore</strong>: Export and import `SakeDictionary_Backup_yyyyMMdd.json` via the top-right "..." menu.</li>
                 </ul>
             </li>
-            <li><strong>Show Initial Tutorial</strong>: Re-displays the app walkthrough tutorial slides (SakeTutorialView).</li>
-            <li><strong>About App</strong>: Displays the current app version (e.g., 1.0.1).</li>
+            <li><strong>Help & Tutorials</strong>:
+                <ul>
+                    <li><strong>User Manual</strong>: Opens this web manual.</li>
+                    <li><strong>Replay Initial Tutorial</strong>: Re-displays the onboarding walkthrough slides (SakeTutorialView).</li>
+                </ul>
+            </li>
+            <li><strong>About App</strong>: Displays the current installed app version (e.g., `1.0.3`).</li>
         </ul>
     </section>
 
@@ -367,27 +399,37 @@
         <p>Visualizes your conquest status across Japan's 47 prefectures.</p>
         <ul>
             <li><strong>Conquest Progress Bar</strong>: Displays a progress meter at the top reading "X / 47 Prefectures".</li>
-            <li><strong>Prefecture Cells</strong>: Prefectures from which you have logged at least one Sake display an orange medal (🏅) and total count. Unvisited prefectures remain grayed out.</li>
+            <li><strong>Prefecture Cells</strong>: Prefectures with logged Sake display an orange medal (🏅) and count. Unvisited prefectures remain grayed out.</li>
         </ul>
 
         <h3>6.2 Flavor Positioning Map (SakeTasteMapView) *Standard Plan Exclusive</h3>
-        <p>Plots all past logs onto a 2D map with Horizontal Axis = "Dryness (Sweet to Dry)" and Vertical Axis = "Body (Light to Rich)".</p>
+        <p>Plots all past logs onto a 2D map (Horizontal Axis = "Dryness", Vertical Axis = "Body").</p>
         <ul>
-            <li><strong>Individual Sake Plots</strong>: Displayed as orange circles (includes anti-overlap jitter processing).</li>
-            <li><strong>Your Average Taste Trend</strong>: Calculates the average of all your logged entries and plots your personal taste center as a blue star (★) near the middle of the map.</li>
+            <li><strong>Individual Sake Plots</strong>: Displayed as orange circles (with anti-overlap jitter processing).</li>
+            <li><strong>Your Average Taste Trend</strong>: Displays your overall average taste center as a blue star (★) near the middle of the map.</li>
         </ul>
 
         <h3>6.3 Data Backup & Restore Architecture</h3>
         <div class="note">
-            <strong>💡 Backup Folder Structure (SakeLog_Backup_yyyyMMdd)</strong><br>
+            <strong>💡 Log Backup Folder Structure (SakeLog_Backup_yyyyMMdd)</strong><br>
             Executing "Export Data" automatically creates a dated folder containing the following files:
             <ul>
-                <li><code>data.json</code>: Text data, ratings, dates, and settings for all records formatted in ISO8601-compliant JSON.</li>
+                <li><code>data.json</code>: Text data, ratings, dates, and settings for all records in ISO8601-compliant JSON.</li>
                 <li><code>BrandName_8digitUUID_front.jpg</code> / <code>_back.jpg</code> / <code>_sub1.jpg</code>, etc.: Compressed JPEG image files linked to each log.</li>
             </ul>
             Executing "Import Data" and selecting this folder safely restores and imports all data without creating duplicate entries.
         </div>
     </section>
+
+    <!-- Privacy Policy Card -->
+    <div class="privacy-card">
+        <p style="margin-bottom: 5px; font-weight: bold;">Privacy Policy</p>
+        <p style="font-size: 13px; color: #6b7280; margin-bottom: 8px;">For details on how we protect your personal data, please read our policy.</p>
+        <a href="https://gist.github.com/hiroyuki-sys/16a04c766b9c5ea4c3cdd0aa84508574" target="_blank" rel="noopener noreferrer" class="privacy-link">
+            🔒 View SakeRecord Privacy Policy (Gist)
+        </a>
+    </div>
+
 </div>
 
 <footer>

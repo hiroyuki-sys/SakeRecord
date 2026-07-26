@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SakeRecord（サケレコード）完全取扱説明書・ユーザーマニュアル</title>
     <style>
         @page {
@@ -22,6 +23,12 @@
             background-color: #fdfbf7;
         }
         
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .header-banner {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: #ffffff;
@@ -148,10 +155,28 @@
             border-radius: 3px;
             font-size: 9pt;
         }
+
+        .privacy-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #e1e4e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .privacy-link {
+            color: #2a5298;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
+<div class="container">
     <div class="header-banner">
         <h1>SakeRecord 完全取扱説明書（マニュアル）</h1>
         <p>日本酒ログ記録・写真コレクション・味覚分析・産地コレクションの全機能詳細ガイド</p>
@@ -191,7 +216,7 @@
                 <td><strong>写真アルバム（一覧表示）</strong></td>
                 <td>非表示 (使用不可)</td>
                 <td><span class="badge badge-std">利用可能</span></td>
-                <td>ピンチイン・アウト操作（2〜5列変更）に対応した全写真一覧ギャラリー画面です。</td>
+                <td>ピンチ操作（2〜5列変更）に対応した全写真一覧ギャラリー画面です。</td>
             </tr>
             <tr>
                 <td><strong>味のポジショニングマップ</strong></td>
@@ -200,16 +225,16 @@
                 <td>「濃淡」と「甘辛」の2軸で自分のお酒の傾向を視覚化・平均分析する機能です。</td>
             </tr>
             <tr>
-                <td><strong>データバックアップ（書き出し）</strong></td>
+                <td><strong>ログデータバックアップ（書き出し）</strong></td>
                 <td>不可 (非活性)</td>
                 <td><span class="badge badge-std">利用可能</span></td>
                 <td>全ログデータ（JSON）と高画質画像を一括でZIP/フォルダ出力する機能です。</td>
             </tr>
             <tr>
-                <td><strong>データインポート（読み込み）</strong></td>
+                <td><strong>辞書バックアップ・復元</strong></td>
                 <td><span class="badge badge-all">利用可能</span></td>
                 <td><span class="badge badge-std">利用可能</span></td>
-                <td>バックアップフォルダからのログデータの復元・移行機能です。</td>
+                <td>サジェスト辞書データ（`SakeDictionary_Backup_yyyyMMdd.json`）のエクスポート/インポート機能です。</td>
             </tr>
             <tr>
                 <td><strong>産地コレクション（47都道府県）</strong></td>
@@ -260,7 +285,7 @@
         <li><strong>新規登録ボタン（「＋」アイコン）</strong>：ナビゲーション右側に配置。タップすると「新規登録シート（SakeInputView）」が下部から立ち上がります。</li>
     </ul>
 
-    <h3>3.3 新規登録画面（SakeInputView）の全入力項目</h3>
+    <h3>3.3 新規登録画面（SakeInputView）の全入力項目と写真操作</h3>
     <p>新規に日本酒ログを登録する画面です。以下の入力項目で構成されています。</p>
 
     <div class="feature-box">
@@ -268,11 +293,11 @@
         <ul>
             <li><strong>横スクロール写真タイル</strong>：左から「表ラベル」「裏ラベル」「サブ1」「サブ2」「サブ3」の最大5枠が並びます。</li>
             <li><strong>タイルタップ操作</strong>：未登録時はカメラが自動起動します。登録済み時は拡大プレビューギャラリーが開きます。無料版で「サブ1〜3」をタップした場合はアップグレード案内アラートが表示されます。</li>
-            <li><strong>「アルバムから登録」ボタン</strong>：PhotosPickerを起動し、ライブラリから複数写真を一括選択して自動割り当てします（無料版は最大2枚、スタンダード版は最大5枚）。</li>
+            <li><strong>「アルバムから登録」ボタン</strong>：ライブラリから複数写真（無料版:最大2枚、スタンダード版:最大5枚）を一括選択して順に割り当てます。既に写真が登録されているスロットに割り当たる場合は**「写真の上書き確認」**アラートがポップアップ表示され、既存写真の不意な消失を防ぎます。</li>
         </ul>
 
         <h4>2. 自由コメントセクション</h4>
-        <p>写真タイルのすぐ直下に配置された長文用テキストエディタです。テイスティングメモ、購入店、価格、ペアリングした料理などを自由に入力できます。</p>
+        <p>写真タイルの直下に配置された長文用テキストエディタです。テイスティングメモ、購入店、価格、ペアリングした料理などを自由に入力できます。</p>
 
         <h4>3. 基本情報セクション</h4>
         <ul>
@@ -308,14 +333,25 @@
         </ul>
     </div>
 
-    <h3>3.4 詳細・編集画面（SakeDetailView）</h3>
-    <p>登録済みログの全項目の確認・修正が可能です。画面右上の「🔍」アイコンをタップすると、銘柄名と蔵元名をもとにGoogle検索を実行するブラウザが開きます。</p>
+    <h3>3.4 詳細・編集画面（SakeDetailView）と拡大表示（SakeImageDetailView）</h3>
+    <p>登録済みログの全項目の確認・修正が可能です。</p>
+    <ul>
+        <li><strong>蔵元Google検索ボタン</strong>：画面右上の「🔍」アイコンをタップすると、銘柄名と蔵元名をもとにGoogle検索を実行するブラウザが開きます。</li>
+        <li><strong>写真の拡大表示・入れ替え・削除</strong>：
+            写真タイルをタップするとフルスクリーン拡大表示（SakeImageDetailView）が開きます。
+            <ul>
+                <li><strong>画像の入れ替え</strong>：ツールバー左側のカメラアイコンから、カメラ撮影またはライブラリ選択で写真を更新できます。</li>
+                <li><strong>写真の削除</strong>：ツールバー左側の赤色ゴミ箱アイコン（`trash`）をタップすると確認ダイアログが表示され、現在表示中の写真だけを安全に削除（クリア）できます。</li>
+            </ul>
+        </li>
+    </ul>
 
     <h2>4. タブ2：写真アルバム（SakePhotoGalleryView） ※スタンダード限定</h2>
     <div class="feature-box">
         <h4>ビジュアルギャラリーとピンチイン・アウト制御</h4>
-        <p>スタンダードプラン以上のユーザーに表示される専用タブです。登録されているすべてのラベル写真（表・裏・サブ）が、グリッド状に並んで表示されます（※無料版ユーザーにはタブ自体が表示されません）。</p>
+        <p>スタンダードプラン以上のユーザーに表示される専用タブです。登録されているすべてのラベル写真（表・裏・サブ）が、画面いっぱいのグリッド状に並んで表示されます（※無料版ユーザーにはタブ自体が表示されません）。</p>
         <ul>
+            <li><strong>ヘッダー非表示化</strong>：写真にタイトル文字列が被るのを防ぐため、ナビゲーションバーを非表示にした洗練された表示設計となっています。</li>
             <li><strong>ピンチ操作による列数変更</strong>：画面上で2本の指を広げる（ピンチアウト）と拡大（列数が減少：最小2列）、すぼめる（ピンチイン）と縮小（列数が増加：最大5列）へインタラクティブに切り替わります。</li>
             <li><strong>タップ遷移</strong>：枚数タイルをタップすると、その写真が属するログの詳細画面（SakeDetailView）へダイレクトに移動します。</li>
         </ul>
@@ -323,7 +359,7 @@
 
     <h2>5. タブ3（無料版はタブ2）：設定とカスタマイズ</h2>
 
-    <h3>5.1 設定メニュー項目</h3>
+    <h3>5.1 設定メニュー項目（SettingsView）</h3>
     <ul>
         <li><strong>現在のプラン表示</strong>：現在有効なプラン状態を確認できます。</li>
         <li><strong>スキャン辞書の編集（DictionaryEditView）</strong>：自動補完（サジェスト）で使用される辞書キーワードの追加・検索・削除・使用回数の管理を行えます。
@@ -331,10 +367,16 @@
                 <li>カテゴリ切り替え（銘柄 / 蔵元 / 製法 / 酒米 / 酵母）。</li>
                 <li>「X回使用」バッジ表示および「初期」データマーク表示。</li>
                 <li>「＋」ボタンから新しいキーワードとひらがな読みを追加可能。</li>
+                <li><strong>辞書データのバックアップ・復元</strong>：右上「...」メニューから `SakeDictionary_Backup_yyyyMMdd.json` 形式でのエクスポート・インポートを実行できます。</li>
             </ul>
         </li>
-        <li><strong>初回チュートリアルを表示</strong>：アプリの使い方スライド（SakeTutorialView）を再表示します。</li>
-        <li><strong>アプリについて</strong>：現在のアプリバージョン（例: 1.0.1）を表示。</li>
+        <li><strong>ヘルプ・チュートリアル</strong>：
+            <ul>
+                <li><strong>ユーザーマニュアル</strong>：本Webマニュアルを開きます。</li>
+                <li><strong>初回チュートリアルを表示</strong>：アプリの使い方スライド（SakeTutorialView）を再表示します。</li>
+            </ul>
+        </li>
+        <li><strong>アプリについて</strong>：現在のアプリバージョン（例: `1.0.3`）が表示されます。</li>
     </ul>
 
     <h2>6. 補助画面・バックアップ仕様</h2>
@@ -355,7 +397,7 @@
 
     <h3>6.3 データバックアップと復元構造</h3>
     <div class="callout">
-        <div class="callout-title">バックアップフォルダ構成 (SakeLog_Backup_yyyyMMdd)</div>
+        <div class="callout-title">ログバックアップフォルダ構成 (SakeLog_Backup_yyyyMMdd)</div>
         <p>「データを書き出す」を実行すると、日付付きのフォルダが自動生成され、以下のファイルが出力されます。</p>
         <ul>
             <li><code>data.json</code>：全レコードのテキストデータ、評価、日付、設定値をISO8601準拠JSON形式で出力。</li>
@@ -363,6 +405,17 @@
         </ul>
         <p>「データを読み込む」を実行してこのフォルダを選択することで、既存データと重複することなく安全に一括インポート・復元が行われます。</p>
     </div>
+
+    <!-- プライバシーポリシーリンク -->
+    <div class="privacy-box">
+        <p style="margin-bottom: 5px; font-weight: bold;">プライバシーポリシー</p>
+        <p style="font-size: 9pt; color: #666; margin-bottom: 8px;">アプリにおける個人情報の取り扱いについては以下よりご確認いただけます。</p>
+        <a href="https://gist.github.com/hiroyuki-sys/16a04c766b9c5ea4c3cdd0aa84508574" target="_blank" rel="noopener noreferrer" class="privacy-link">
+            🔒 SakeRecord プライバシーポリシーを見る (Gist)
+        </a>
+    </div>
+
+</div>
 
 </body>
 </html>
