@@ -110,6 +110,7 @@
         }
         .badge-free { background-color: #6b7280; }
         .badge-std { background-color: #f97316; }
+        .badge-pro { background-color: #9333ea; }
         .badge-all { background-color: #10b981; }
 
         table {
@@ -166,12 +167,12 @@
 
 <header>
     <h1>SakeRecord User Manual</h1>
-    <p>Complete Guide to Sake Logging, Photo Collections, Taste Analysis, and Origin Coverage</p>
+    <p>Complete Guide to Sake Logging, AI Label Scanning, Tasting Cards, Interactive Taste Analysis, and Origin Coverage</p>
 </header>
 
 <div class="container">
     <div class="nav-back">
-        <a href="user_manual.html">🌐 日本語版マニュアル</a>
+        <a href="user manual.html">🌐 Language Selection</a> ｜ <a href="jpn.html">🇯🇵 日本語版マニュアル</a>
     </div>
 
     <nav class="toc">
@@ -190,14 +191,14 @@
     <section id="overview">
         <h2>1. SakeRecord App Overview</h2>
         <p>
-            <strong>SakeRecord</strong> is an iOS-exclusive Japanese Sake management application that allows you to smartly record specs, photos, and taste profiles of the Sake you drink. It helps you manage your collection through visual photo albums, positioning maps, and a 47-prefecture conquest tracker.
+            <strong>SakeRecord</strong> is an iOS-exclusive Japanese Sake management application that allows you to smartly record specs, photos, and taste profiles of the Sake you drink. It features AI-powered label text recognition, shareable tasting card generation, interactive flavor positioning maps with personal preference diagnostics, visual photo albums, and a 47-prefecture conquest tracker.
         </p>
     </section>
 
     <!-- 2. Plans -->
     <section id="plans">
         <h2>2. Pricing Plans & Feature Matrix</h2>
-        <p>The app offers two pricing tiers: "Free Version" and "Standard Plan". The feature differences for each plan are detailed below.</p>
+        <p>The app offers three pricing tiers: "Free Version", "Standard Plan", and "Pro (Expert) Plan". The feature differences for each plan are detailed below.</p>
 
         <table>
             <thead>
@@ -205,6 +206,7 @@
                     <th>Feature Item</th>
                     <th>Free Version (Free)</th>
                     <th>Standard Plan (Standard)</th>
+                    <th>Pro Plan (Expert)</th>
                     <th>Overview / Notes</th>
                 </tr>
             </thead>
@@ -213,48 +215,77 @@
                     <td><strong>Tab Bar Layout</strong></td>
                     <td><span class="badge badge-free">2 Tabs</span><br>(Logs / Settings)</td>
                     <td><span class="badge badge-std">3 Tabs</span><br>(Logs / Album / Settings)</td>
+                    <td><span class="badge badge-pro">3 Tabs</span><br>(Logs / Album / Settings)</td>
                     <td>In the Free version, the "Album" tab itself is hidden, resulting in a streamlined 2-tab layout.</td>
                 </tr>
                 <tr>
                     <td><strong>Max Photo Uploads</strong></td>
                     <td><span class="badge badge-free">Up to 2 photos</span><br>(Front / Back label)</td>
                     <td><span class="badge badge-std">Up to 5 photos</span><br>(Front / Back / Sub 1–3)</td>
+                    <td><span class="badge badge-pro">Up to 5 photos</span><br>(Front / Back / Sub 1–3)</td>
                     <td>The maximum number of label and snapshot photos that can be saved and displayed per log entry.</td>
+                </tr>
+                <tr>
+                    <td><strong>AI Label Scan (OCR + AI Assist)</strong></td>
+                    <td>Locked</td>
+                    <td>Locked</td>
+                    <td><span class="badge badge-pro">Available (PRO Exclusive)</span></td>
+                    <td>Automatically extracts Brand, Grade, Rice, Polishing Ratio, Alcohol %, etc. from both vertical and horizontal labels for one-tap input.</td>
                 </tr>
                 <tr>
                     <td><strong>Photo Album (Gallery)</strong></td>
                     <td>Hidden (Unavailable)</td>
                     <td><span class="badge badge-std">Available</span></td>
+                    <td><span class="badge badge-pro">Available</span></td>
                     <td>Clean full-bleed gallery view supporting pinch-in/out gestures to change display columns (2 to 5 columns).</td>
                 </tr>
                 <tr>
-                    <td><strong>Flavor Positioning Map</strong></td>
+                    <td><strong>Interactive Taste Map & Diagnosis</strong></td>
                     <td>Disabled (Grayed out)</td>
                     <td><span class="badge badge-std">Available</span></td>
-                    <td>Visualizes and analyzes your personal taste trends along two axes: "Body" and "Dryness".</td>
+                    <td><span class="badge badge-pro">Available</span></td>
+                    <td>4-axis interactive map, tap-to-inspect Sake cards, personal preference diagnosis, and Top 3 Rice / Grade / Brewery rankings.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tasting Card Generator & Share</strong></td>
+                    <td><span class="badge badge-all">Available</span></td>
+                    <td><span class="badge badge-std">Available</span></td>
+                    <td><span class="badge badge-pro">Available</span></td>
+                    <td>Synthesizes photo, specs, 4-axis flavor meters, and notes into a stylish card image to share on SNS or save to Photos.</td>
+                </tr>
+                <tr>
+                    <td><strong>Save Label Photo to Camera Roll</strong></td>
+                    <td><span class="badge badge-all">Available</span></td>
+                    <td><span class="badge badge-std">Available</span></td>
+                    <td><span class="badge badge-pro">Available</span></td>
+                    <td>Download and save any viewed label photo directly to your iPhone's Photo Library.</td>
                 </tr>
                 <tr>
                     <td><strong>Log Backup (Export)</strong></td>
                     <td>Disabled (Grayed out)</td>
                     <td><span class="badge badge-std">Available</span></td>
-                    <td>Exports all log data (JSON) and high-resolution images together as a ZIP/folder.</td>
+                    <td><span class="badge badge-pro">Available</span></td>
+                    <td>Exports all log data (JSON) and images together as a backup folder.</td>
                 </tr>
                 <tr>
                     <td><strong>Dictionary Backup / Restore</strong></td>
                     <td><span class="badge badge-all">Available</span></td>
                     <td><span class="badge badge-std">Available</span></td>
-                    <td>Exports and imports custom suggestion dictionary files (`SakeDictionary_Backup_yyyyMMdd.json`).</td>
+                    <td><span class="badge badge-pro">Available</span></td>
+                    <td>Exports and imports custom suggestion dictionary files (<code>SakeDictionary_Backup_yyyyMMdd.json</code>).</td>
                 </tr>
                 <tr>
                     <td><strong>Origin Collection (47 Prefectures)</strong></td>
                     <td><span class="badge badge-all">Available</span></td>
                     <td><span class="badge badge-std">Available</span></td>
+                    <td><span class="badge badge-pro">Available</span></td>
                     <td>Displays progress bars and medal badges for conquering all 47 prefectures in Japan.</td>
                 </tr>
                 <tr>
                     <td><strong>Auto-Suggest & Custom Dictionary</strong></td>
                     <td><span class="badge badge-all">Available</span></td>
                     <td><span class="badge badge-std">Available</span></td>
+                    <td><span class="badge badge-pro">Available</span></td>
                     <td>Auto-completes and manages custom dictionary words for Brand, Brewery, Rice, Yeast, Style, etc.</td>
                 </tr>
             </tbody>
@@ -265,10 +296,11 @@
     <section id="logs-tab">
         <h2>3. Tab 1: Logs (Sake Record List)</h2>
 
-        <h3>3.1 Main Screen, Search, & Filtering</h3>
-        <h4>List Display & Sorting Order</h4>
-        <p>Registered Sake logs are listed in reverse chronological order (newest date first). Each row displays the following information:</p>
+        <h3>3.1 Main Screen, Record Count, Search, & Filtering</h3>
+        <h4>List Display, Record Counter, & Sorting Order</h4>
+        <p>Registered Sake logs are listed in reverse chronological order (newest date first). A live counter is displayed at the top of the list.</p>
         <ul>
+            <li><strong>Total & Filtered Record Counter</strong>: Displays "<code>登録件数: X件</code> (Total Records)" at the top of the list, and automatically switches to "<code>検索結果: Y件 / 全X件</code> (Search Results / Total)" while searching.</li>
             <li><strong>Brand Name</strong>: Positioned on the left (truncated to one line if too long).</li>
             <li><strong>Tasted Date</strong>: Displayed on the right in small gray text.</li>
             <li><strong>Rating Stars (★)</strong>: Displayed in orange (★1 to ★5) next to the date (hidden if unrated).</li>
@@ -285,30 +317,41 @@
         <h3>3.2 Toolbar Navigation Buttons</h3>
         <ul>
             <li><strong>Origin Collection Button (🏅 Medal Icon)</strong>: Located on the left side of the navigation bar. Tapping opens the "Prefecture Conquest Screen".</li>
-            <li><strong>Taste Analysis Map Button (📈 Graph Icon)</strong>: Located on the left side of the navigation bar. Standard Plan exclusive. Tapping opens the "Flavor Positioning Map". Appears disabled (grayed out) in the Free version.</li>
+            <li><strong>Taste Analysis Map Button (📈 Graph Icon)</strong>: Located on the left side of the navigation bar. Standard & Pro Plan exclusive. Tapping opens the "Flavor Positioning Map & Preference Diagnosis". Appears disabled (grayed out) in the Free version.</li>
             <li><strong>Sub-menu Button ("..." Icon)</strong>:
                 <ul>
-                    <li><strong>Export Data (square.and.arrow.up)</strong>: Standard Plan exclusive. Exports all logs and images as a ZIP/folder to the iOS Share Sheet.</li>
+                    <li><strong>Export Data (square.and.arrow.up)</strong>: Standard & Pro Plan exclusive. Exports all logs and images as a folder to the iOS Share Sheet.</li>
                     <li><strong>Import Data (square.and.arrow.down)</strong>: Allows you to select a backup folder to bulk import records into the database.</li>
                 </ul>
             </li>
             <li><strong>New Entry Button ("+" Icon)</strong>: Located on the right side of the navigation bar. Tapping brings up the "New Entry Sheet (SakeInputView)" from the bottom.</li>
         </ul>
 
-        <h3>3.3 New Entry Screen (SakeInputView) Fields & Photo Controls</h3>
+        <h3>3.3 New Entry Screen (SakeInputView) Fields & AI Label Scan</h3>
         <p>This screen is used to log a new Sake entry. It consists of the following input sections:</p>
 
-        <h4>1. Label & Photo Section</h4>
+        <h4>1. Label & Photo Section + AI Label Scan (Pro Exclusive)</h4>
         <ul>
             <li><strong>Horizontal Scroll Photo Tiles</strong>: Displays up to 5 slots from left to right: "Front Label", "Back Label", "Sub 1", "Sub 2", and "Sub 3".</li>
             <li><strong>Tile Tap Actions</strong>: Automatically opens the camera if empty. Opens an enlarged preview gallery if a photo is registered. Tapping "Sub 1–3" in the Free version triggers an upgrade prompt alert.</li>
-            <li><strong>"Register from Album" Button</strong>: Select multiple photos at once from your library (up to 2 for Free, up to 5 for Standard). If a target slot already contains a photo, an **"Overwrite Confirmation"** alert pops up to prevent accidental deletion.</li>
+            <li><strong>"Register from Album" Button</strong>: Select multiple photos at once from your library (up to 2 for Free, up to 5 for Standard/Pro). If a target slot already contains a photo, an <strong>"Overwrite Confirmation"</strong> alert pops up to prevent accidental deletion.</li>
+            <li><strong>✨ AI Label Scan (Auto-Extract & One-Tap Apply) *Pro (Expert) Exclusive</strong>:
+                <ul>
+                    <li>Automatically scans attached label photos upon capture/selection (or whenever you tap the "AI Label Scan" button, including on previously saved records).</li>
+                    <li><strong>Vertical Text & Kanji Numeral Hybrid Engine</strong>: Combines iOS Live Text (<code>VisionKit</code>), a custom per-character vertical column reconstruction algorithm, Scan Dictionary (<code>SakeDictionary</code>) matching, on-device AI (iOS 26 <code>FoundationModels</code>), and optional Gemini Vision API. Recognizes both horizontal and vertical Japanese labels, including Kanji numerals for polishing ratio (e.g., <code>五十%</code>, <code>四割五分</code> = 45%) and alcohol content (e.g., <code>十六度</code> = 16%).</li>
+                    <li><strong>Non-Destructive Candidate Chips</strong>: Displays detected fields as purple chips (e.g., <code>[Grade: Junmai Ginjo]</code>, <code>[Rice: Yamadanishiki]</code>, <code>[Polishing: 50%]</code>, <code>[Alcohol: 16%]</code>). Tap individual chips to apply them, or tap <strong>"Apply All"</strong> to fill all detected fields at once.</li>
+                    <li><strong>Pick from Raw Recognized Text</strong>: Expand "Choose from recognized text list" to tap any OCR text line and assign it directly to Brand Name, Brewery, Rice, Style, Yeast, or append to Comments in two taps.</li>
+                </ul>
+            </li>
         </ul>
 
         <h4>2. Custom Comments Section</h4>
-        <p>A multi-line text editor positioned directly below the photo tiles. Freely record tasting notes, purchasing store, price, food pairings, and more.</p>
+        <p>A multi-line text editor positioned directly below the photo section. Freely record tasting notes, purchasing store, price, food pairings, and more.</p>
 
-        <h4>3. Basic Specifications Section</h4>
+        <h4>3. Overall Rating Section</h4>
+        <p>Set a rating from 1 to 5 stars (★) by tapping.</p>
+
+        <h4>4. Basic Specifications Section</h4>
         <ul>
             <li><strong>Brand Name</strong> (Required): Enter the Sake brand name.</li>
             <li><strong>Specific Designation (Grade)</strong> (Picker): Select from None / Futsu-shu / Junmai / Tokubetsu Junmai / Junmai Ginjo / Junmai Daiginjo / Honjozo / Tokubetsu Honjozo / Ginjo / Daiginjo / Other.</li>
@@ -322,11 +365,8 @@
             <li><strong>Tasted Date</strong>: Select using the date picker (DatePicker).</li>
         </ul>
 
-        <h4>4. Real-time Predictive Auto-Suggest Bar (Keyboard Toolbar)</h4>
+        <h4>5. Real-time Predictive Auto-Suggest Bar (Keyboard Toolbar)</h4>
         <p>When typing in Brand Name, Style, Rice, Yeast, Brewery, or Prefecture, auto-suggest candidates scroll horizontally above the keyboard. Tapping a candidate fills the field and automatically increments its usage count in the custom dictionary.</p>
-
-        <h4>5. Overall Rating Section</h4>
-        <p>Set a rating from 1 to 5 stars (★) by tapping.</p>
 
         <h4>6. Flavor Analysis Section</h4>
         <ul>
@@ -341,15 +381,25 @@
             <li><strong>Feature Flags (Checkboxes)</strong>: Effervescent / Rice Umami / Richness / Bitterness / Crisp Finish</li>
         </ul>
 
-        <h3>3.4 Detail Screen (SakeDetailView) & Full Viewer (SakeImageDetailView)</h3>
-        <p>View and edit all fields of registered logs.</p>
+        <h3>3.4 Detail Screen (SakeDetailView), Tasting Card Generator, & Full Viewer (SakeImageDetailView)</h3>
+        <p>View and edit all fields of registered logs, re-scan labels with AI, or generate shareable Tasting Cards.</p>
         <ul>
-            <li><strong>Brewery Web Search</strong>: Tapping the "🔍" icon in the top right opens an in-app browser to search Google for the Brand and Brewery name.</li>
-            <li><strong>Full Viewer, Replacement & Deletion</strong>:
-                Tapping any photo tile opens the full-screen viewer (`SakeImageDetailView`).
+            <li><strong>🍶 Create & Share Tasting Card (SakeTastingCardSheetView)</strong>:
+                Launch from the orange <strong>"Create & Share Tasting Card"</strong> button below the photo section or the top-right share icon (<code>square.and.arrow.up</code>).
                 <ul>
-                    <li><strong>Replacing Photos</strong>: Tap the camera icon on the top left to retake or select a new image.</li>
-                    <li><strong>Deleting Photos</strong>: Tap the red trash icon (`trash`) on the top left to show a confirmation dialog and safely delete only the current image.</li>
+                    <li><strong>All-in-One Visual Card</strong>: Combines the label photo, brand name, brewery & prefecture, date, ★ rating, rice/polishing/alcohol/yeast specs, 4-axis flavor meters, feature tags, and tasting notes into a single refined image.</li>
+                    <li><strong>3 Japanese Color Themes</strong>: Switch instantly between "Modern Navy & Gold", "White Porcelain (Kinari)", and "Crimson Lacquer (Akane)".</li>
+                    <li><strong>Toggle Personal Notes</strong>: Show or hide your custom comments on the card with a single toggle before sharing publicly.</li>
+                    <li><strong>Crisp & Lightweight JPEG Export</strong>: Renders at 3x Retina resolution while compressing into a lightweight (~200–300KB) JPEG file for sharing via SNS/LINE or saving directly to your iPhone Photo Library.</li>
+                </ul>
+            </li>
+            <li><strong>Brewery Web Search</strong>: Tapping the "🔍" icon in the top right opens an in-app browser to search Google for the Brand and Brewery name.</li>
+            <li><strong>Full Viewer, Replacement, Download to Photos, & Deletion (SakeImageDetailView)</strong>:
+                Tapping any photo tile opens the zoomable full-screen viewer.
+                <ul>
+                    <li><strong>Replacing Photos (🔄 Camera Icon)</strong>: Tap the camera replacement icon on the top left to retake or select a new image.</li>
+                    <li><strong>Download to iPhone Photos (📥 Download Icon)</strong>: Tap the download icon (<code>square.and.arrow.down</code>) on the top left to save the currently displayed photo directly to your iPhone's Photo Library.</li>
+                    <li><strong>Deleting Photos (🗑️ Trash Icon)</strong>: Tap the red trash icon (<code>trash</code>) on the top left to show a confirmation dialog and safely delete only the current image.</li>
                 </ul>
             </li>
         </ul>
@@ -357,9 +407,9 @@
 
     <!-- 4. Gallery Tab -->
     <section id="gallery-tab">
-        <h2>4. Tab 2: Photo Album (SakePhotoGalleryView) *Standard Plan Exclusive</h2>
+        <h2>4. Tab 2: Photo Album (SakePhotoGalleryView) *Standard & Pro Exclusive</h2>
         <h4>Visual Gallery & Pinch Gesture Controls</h4>
-        <p>A dedicated tab available exclusively to Standard Plan users. Displays all registered label photos (Front, Back, and Sub) in a clean grid layout (hidden for Free users).</p>
+        <p>A dedicated tab available to Standard and Pro (Expert) Plan users. Displays all registered label photos (Front, Back, and Sub) in a clean grid layout (hidden for Free users).</p>
         <ul>
             <li><strong>Clean Title-free Layout</strong>: The navigation header is hidden to maximize viewing area and prevent text overlay on thumbnails.</li>
             <li><strong>Pinch Column Resizing</strong>: Spreading two fingers (pinch-out) enlarges thumbnails (reduces column count down to 2), while pinching together (pinch-in) shrinks thumbnails (increases column count up to 5).</li>
@@ -372,13 +422,18 @@
         <h2>5. Tab 3 (Tab 2 in Free Version): Settings & Customization</h2>
         <h3>5.1 Settings Menu Items (SettingsView)</h3>
         <ul>
-            <li><strong>Current Plan Display</strong>: Displays your currently active plan status.</li>
-            <li><strong>Edit Scan Dictionary (DictionaryEditView)</strong>: Add, search, delete, and manage usage counts for dictionary keywords.
+            <li><strong>Current Plan Display & Switcher</strong>: View and switch your active plan tier (Free / Standard / Pro (Expert)).</li>
+            <li><strong>Scan Settings</strong>:
                 <ul>
-                    <li>Category switching (Brand / Brewery / Style / Rice / Yeast).</li>
-                    <li>Displays "Used X times" badges and "Default" data indicators.</li>
-                    <li>Add new keywords and Kana readings via the "+" button.</li>
-                    <li><strong>Dictionary Backup & Restore</strong>: Export and import `SakeDictionary_Backup_yyyyMMdd.json` via the top-right "..." menu.</li>
+                    <li><strong>Edit Scan Dictionary (DictionaryEditView)</strong>: Add, search, edit, delete, and manage usage counts for dictionary keywords used by both auto-suggest and AI Label Scan.
+                        <ul>
+                            <li>Category switching (Brand / Brewery / Style / Rice / Yeast).</li>
+                            <li>Displays "Used X times" badges and "Default" data indicators.</li>
+                            <li>Add new keywords and Kana readings via the "+" button.</li>
+                            <li><strong>Dictionary Backup & Restore</strong>: Export and import <code>SakeDictionary_Backup_yyyyMMdd.json</code> via the top-right "..." menu.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Gemini API Key (Pro Exclusive / Optional)</strong>: While AI Label Scan works offline out-of-the-box using built-in Vision OCR and on-device AI, registering a Gemini API key enables cloud multimodal AI recognition for artistic calligraphy front labels.</li>
                 </ul>
             </li>
             <li><strong>Help & Tutorials</strong>:
@@ -387,7 +442,7 @@
                     <li><strong>Replay Initial Tutorial</strong>: Re-displays the onboarding walkthrough slides (SakeTutorialView).</li>
                 </ul>
             </li>
-            <li><strong>About App</strong>: Displays the current installed app version (e.g., `1.0.3`).</li>
+            <li><strong>About App</strong>: Displays the current installed app version.</li>
         </ul>
     </section>
 
@@ -402,11 +457,14 @@
             <li><strong>Prefecture Cells</strong>: Prefectures with logged Sake display an orange medal (🏅) and count. Unvisited prefectures remain grayed out.</li>
         </ul>
 
-        <h3>6.2 Flavor Positioning Map (SakeTasteMapView) *Standard Plan Exclusive</h3>
-        <p>Plots all past logs onto a 2D map (Horizontal Axis = "Dryness", Vertical Axis = "Body").</p>
+        <h3>6.2 Interactive Flavor Positioning Map & Preference Diagnosis (SakeTasteMapView) *Standard & Pro Exclusive</h3>
+        <p>Plots your Sake logs onto an interactive 2D map and automatically diagnoses your personal flavor preferences and favorite specs.</p>
         <ul>
-            <li><strong>Individual Sake Plots</strong>: Displayed as orange circles (with anti-overlap jitter processing).</li>
-            <li><strong>Your Average Taste Trend</strong>: Displays your overall average taste center as a blue star (★) near the middle of the map.</li>
+            <li><strong>2 Map Axis Modes</strong>: Switch with one tap between <strong>"Dryness × Body"</strong> (Sweet↔Dry, Light↔Rich) and <strong>"Aroma × Character"</strong> (Subtle↔Expressive, Aged↔Fresh).</li>
+            <li><strong>"High-Rated Only (★4+)" Filter</strong>: Filter the map to display only your favorite Sake rated 4 or 5 stars.</li>
+            <li><strong>Tap-to-Inspect & Navigate</strong>: Tap any dot on the map to pop up a summary card showing the label thumbnail, brand name, grade, rice, brewery, and ★ rating, then tap the card to jump directly to its detail screen. When multiple Sake share the same coordinate area, horizontal selector pills let you inspect every overlapping bottle.</li>
+            <li><strong>Personal Taste Type Diagnosis</strong>: Automatically analyzes your high-rated records to generate a personalized taste profile title (e.g., "Expressive Fruity × Rich & Sweet-Umami Type"), description, and top feature hashtags.</li>
+            <li><strong>Top 3 Rankings</strong>: Displays your <strong>Top 3 Rice Varieties</strong>, <strong>Top 3 Specific Designations (Grades)</strong>, and <strong>Top 3 Breweries</strong> with bottle counts and average ★ ratings.</li>
         </ul>
 
         <h3>6.3 Data Backup & Restore Architecture</h3>
