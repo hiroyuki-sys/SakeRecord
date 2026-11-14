@@ -233,6 +233,34 @@
                     <td>Automatically extracts Brand, Grade, Rice, Polishing Ratio, Alcohol %, etc. from both vertical and horizontal labels for one-tap input.</td>
                 </tr>
                 <tr>
+                    <td><strong>Wishlist (Sake to Try Memo)</strong></td>
+                    <td>Locked</td>
+                    <td>Locked</td>
+                    <td><span class="badge badge-pro">Available (PRO Exclusive)</span></td>
+                    <td>Bookmark bottles spotted at shops or restaurants with just a photo, then promote them to tasted logs with one tap when you drink them.</td>
+                </tr>
+                <tr>
+                    <td><strong>Serving Temp & Food Pairings</strong></td>
+                    <td>Locked</td>
+                    <td>Locked</td>
+                    <td><span class="badge badge-pro">Available (PRO Exclusive)</span></td>
+                    <td>Record recommended serving temperatures (Chilled, Warmed, etc.) and best food pairings, which also appear on your Tasting Cards.</td>
+                </tr>
+                <tr>
+                    <td><strong>Past Repeat & Same-Brewery Comparison</strong></td>
+                    <td>Locked</td>
+                    <td>Locked</td>
+                    <td><span class="badge badge-pro">Available (PRO Exclusive)</span></td>
+                    <td>Automatically displays past logs of the same Brand (different vintages/specs) or same Brewery at the bottom of the detail screen.</td>
+                </tr>
+                <tr>
+                    <td><strong>Japan Block Heatmap & Prefecture Drill-down</strong></td>
+                    <td>Medals Only</td>
+                    <td>Medals Only</td>
+                    <td><span class="badge badge-pro">Available (PRO Exclusive)</span></td>
+                    <td>Displays a color-coded Japan archipelago block map and lets you tap any prefecture to view the list of Sake you drank from that region.</td>
+                </tr>
+                <tr>
                     <td><strong>Photo Album (Gallery)</strong></td>
                     <td>Hidden (Unavailable)</td>
                     <td><span class="badge badge-std">Available</span></td>
@@ -297,9 +325,10 @@
         <h2>3. Tab 1: Logs (Sake Record List)</h2>
 
         <h3>3.1 Main Screen, Record Count, Search, & Filtering</h3>
-        <h4>List Display, Record Counter, & Sorting Order</h4>
-        <p>Registered Sake logs are listed in reverse chronological order (newest date first). A live counter is displayed at the top of the list.</p>
+        <h4>List Display, Tasted / Wishlist Mode Switcher, Record Counter, & Sorting Order</h4>
+        <p>Registered Sake logs are listed in reverse chronological order (newest date first). Mode switcher pills and a live counter are displayed at the top of the list.</p>
         <ul>
+            <li><strong>One-Tap "🍶 Tasted Logs" & "🔖 Wishlist (PRO)" Switcher</strong>: Switch instantly between Sake you have already tasted and Sake on your Wishlist (*Pro Plan exclusive). Swipe right on any Wishlist entry and tap <strong>"🍶 Drank!"</strong> to promote it to a tasted log with today's date.</li>
             <li><strong>Total & Filtered Record Counter</strong>: Displays "<code>登録件数: X件</code> (Total Records)" at the top of the list, and automatically switches to "<code>検索結果: Y件 / 全X件</code> (Search Results / Total)" while searching.</li>
             <li><strong>Brand Name</strong>: Positioned on the left (truncated to one line if too long).</li>
             <li><strong>Tasted Date</strong>: Displayed on the right in small gray text.</li>
@@ -381,6 +410,13 @@
             <li><strong>Feature Flags (Checkboxes)</strong>: Effervescent / Rice Umami / Richness / Bitterness / Crisp Finish</li>
         </ul>
 
+        <h4>7. Record Type (Wishlist) & Serving Temperature / Food Pairings (Pro Exclusive)</h4>
+        <ul>
+            <li><strong>Record Type (🍶 Tasted / 🔖 Wishlist [PRO])</strong>: Save an entry to your Wishlist even with just a photo and no Brand Name entered yet. Wishlist items do not skew your Taste Map or Prefecture Conquest stats until you promote them to "Tasted".</li>
+            <li><strong>Recommended Serving Temperatures [PRO]</strong>: Multi-select chips for Chilled (5–10°C), Cool (15°C), Room Temp, Warm (40°C), Hot (50°C+), or On the Rocks / Soda.</li>
+            <li><strong>Best Food Pairings [PRO]</strong>: Multi-select chips for Sashimi/Sushi, Grilled Fish, Meat Dishes, Hot Pot/Oden, Cheese/Western, Delicacies, Tempura/Fried, or Solo/Toast—automatically included on Tasting Cards.</li>
+        </ul>
+
         <h3>3.4 Detail Screen (SakeDetailView), Tasting Card Generator, & Full Viewer (SakeImageDetailView)</h3>
         <p>View and edit all fields of registered logs, re-scan labels with AI, or generate shareable Tasting Cards.</p>
         <ul>
@@ -392,6 +428,9 @@
                     <li><strong>Toggle Personal Notes</strong>: Show or hide your custom comments on the card with a single toggle before sharing publicly.</li>
                     <li><strong>Crisp & Lightweight JPEG Export</strong>: Renders at 3x Retina resolution while compressing into a lightweight (~200–300KB) JPEG file for sharing via SNS/LINE or saving directly to your iPhone Photo Library.</li>
                 </ul>
+            </li>
+            <li><strong>🔄 Past Repeat & Same-Brewery Comparison Section (Pro Exclusive)</strong>:
+                Automatically finds and lists past records sharing the same Brand Name (e.g., different vintages or seasonal releases) or the same Brewery at the bottom of the detail screen, showing total repeat count, average ★ rating, and direct navigation links.
             </li>
             <li><strong>Brewery Web Search</strong>: Tapping the "🔍" icon in the top right opens an in-app browser to search Google for the Brand and Brewery name.</li>
             <li><strong>Full Viewer, Replacement, Download to Photos, & Deletion (SakeImageDetailView)</strong>:
@@ -453,7 +492,8 @@
         <h3>6.1 Origin Collection (PrefectureGridView)</h3>
         <p>Visualizes your conquest status across Japan's 47 prefectures.</p>
         <ul>
-            <li><strong>Conquest Progress Bar</strong>: Displays a progress meter at the top reading "X / 47 Prefectures".</li>
+            <li><strong>Conquest Progress Bar</strong>: Displays a progress meter at the top reading "X / 47 Prefectures" (counted from tasted logs, excluding Wishlist items).</li>
+            <li><strong>🗾 Japan Nationwide Block Heatmap & Prefecture Drill-down Sheet (Pro Exclusive)</strong>: Colors all 47 prefectures on a stylized map of Japan based on how many bottles you have logged. Tapping any prefecture on the map or medal grid opens a sheet listing all Sake you have recorded from that prefecture (with High-Rating / Newest sorting and direct navigation to details).</li>
             <li><strong>Prefecture Cells</strong>: Prefectures with logged Sake display an orange medal (🏅) and count. Unvisited prefectures remain grayed out.</li>
         </ul>
 
